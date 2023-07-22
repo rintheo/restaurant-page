@@ -155,6 +155,9 @@ const menu = () => {
   const menuContainer = document.createElement('div');
   menuContainer.classList.add('menu-container');
 
+  const h2 = document.createElement('h2');
+  h2.textContent = "Our Menu";
+
   const maxWidth = document.createElement('div');
   maxWidth.classList.add('max-width');
 
@@ -216,6 +219,7 @@ const menu = () => {
     maxWidth.appendChild(menu);
   }
   
+  menuContainer.appendChild(h2);
   menuContainer.appendChild(maxWidth);
   siteContainer.appendChild(menuContainer);
 }

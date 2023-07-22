@@ -193,8 +193,18 @@ button {
 .menu-container {
   margin-top: var(--height-header);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.menu-container h2 {
+  width: 100%;
+  padding: 2rem;
+  background-color: var(--color-second);
+  color: white;
+  font-size: 3rem;
+  text-align: center;
 }
 
 .menu {
@@ -254,7 +264,6 @@ button {
   color: white;
   font-size: 3rem;
   text-align: center;
-
 }
 
 .contact-container p {
