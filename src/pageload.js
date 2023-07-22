@@ -1,8 +1,15 @@
-import icon from './images/narutoramenlogo.png';
-import featuredTonkotsu from './images/ramen-tonkotsu.jpeg';
-import featuredShio from './images/ramen-shio.jpeg';
-import featuredShoyu from './images/ramen-shoyu.jpeg';
-import featuredMiso from './images/ramen-miso.jpeg';
+import imgLogo from './images/narutoramenlogo.png';
+import imgTonkotsu from './images/ramen-tonkotsu.jpeg';
+import imgShio from './images/ramen-shio.jpeg';
+import imgShoyu from './images/ramen-shoyu.jpeg';
+import imgMiso from './images/ramen-miso.jpeg';
+import imgGyoza from './images/side-gyoza.jpeg';
+import imgKaraage from './images/side-karaage.jpg';
+import imgOkonomiyaki from './images/side-okonomiyaki.jpg';
+import imgTakoyaki from './images/side-takoyaki.jpg';
+import imgWater from './images/drinks-water.jpg';
+import imgSoda from './images/drinks-soda.jpg';
+import imgBeer from './images/drinks-beer.jpeg';
 
 const siteContainer = document.querySelector('.site-container'); 
 
@@ -20,7 +27,7 @@ const header = () => {
   h1.textContent = 'りんらめん';
 
   const img = document.createElement('img');
-  img.src = icon;
+  img.src = imgLogo;
   img.alt = 'Rin Ramen Logo';
 
   const nav = document.createElement('nav');
@@ -81,10 +88,10 @@ const home = () => {
 
   const ul = document.createElement('ul');
   const ulItems = [
-    {src: featuredTonkotsu, p: 'Tonkotsu'},
-    {src: featuredShio, p: 'Shio'},
-    {src: featuredShoyu, p: 'Shoyu'},
-    {src: featuredMiso, p: 'Miso'},
+    {src: imgTonkotsu, p: 'Tonkotsu'},
+    {src: imgShio, p: 'Shio'},
+    {src: imgShoyu, p: 'Shoyu'},
+    {src: imgMiso, p: 'Miso'},
   ];
 
   for (let ulItem of ulItems) {
@@ -138,11 +145,72 @@ const footer = () => {
 }
 
 const menu = () => {
-  const main = document.createElement('main');
+  const menuContainer = document.createElement('div');
+  menuContainer.classList.add('menu-container');
 
-  const menu = document.createElement('div');
-  menu.classList.add('menu');
+  const maxWidth = document.createElement('div');
+  maxWidth.classList.add('max-width');
 
+  const menuItems = ['Ramen', 'Sides', 'Drinks'];
+  const ramenItems = [
+    {src: imgTonkotsu, p: 'Tonkotsu Ramen'},
+    {src: imgShio, p: 'Shio Ramen'},
+    {src: imgShoyu, p: 'Shoyu Ramen'},
+    {src: imgMiso, p: 'Miso Ramen'},
+  ];
+  const sidesItems = [
+    {src: imgGyoza, p: 'Gyoza'},
+    {src: imgKaraage, p: 'Karaage'},
+    {src: imgOkonomiyaki, p: 'Okonomiyaki'},
+    {src: imgTakoyaki, p: 'Takoyaki'},
+  ];
+  const drinkItems = [
+    {src: imgWater, p: 'Bottled Water'},
+    {src: imgSoda, p: 'Canned Soda'},
+    {src: imgBeer, p: 'Canned Beer'},
+  ];
+
+  for (let menuItem of menuItems) {
+    const menu = document.createElement('div');
+    menu.classList.add('menu');
+
+    const h3 = document.createElement('h3');
+    h3.textContent = menuItem;
+    menu.appendChild(h3);
+
+    let items;
+
+    if (menuItem === 'Ramen') {
+      items = ramenItems;
+    }
+    else if (menuItem === 'Sides') {
+      items = sidesItems;
+    }
+    else if (menuItem === 'Drinks') {
+      items = drinkItems;
+    }
+
+    for (let item of items) {
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      const img = document.createElement('img');
+      img.src = item.src;
+      img.alt = `${item.p}`;
+  
+      const p = document.createElement('p');
+      p.textContent = item.p;
+
+      card.appendChild(img);
+      card.appendChild(p);
+      menu.appendChild(card);
+    }  
+
+    maxWidth.appendChild(menu);
+  }
+  
+  menuContainer.appendChild(maxWidth);
+  siteContainer.appendChild(menuContainer);
 }
 
 export {
