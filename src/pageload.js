@@ -40,7 +40,7 @@ const header = () => {
   nav.classList.add('nav');
 
   const ul = document.createElement('ul');
-  const ulItems = ['Home', 'Menu', 'About', 'Order Now'];
+  const ulItems = ['Home', 'Menu', 'Contact', 'Order Now'];
 
   for (let ulItem of ulItems) {
     const li = document.createElement('li');
@@ -220,10 +220,51 @@ const menu = () => {
   siteContainer.appendChild(menuContainer);
 }
 
+const contact = () => {
+  const contactContainer = document.createElement('div');
+  contactContainer.classList.add('contact-container');
+
+  const h2 = document.createElement('h2');
+  h2.textContent = "Contact Us";
+
+  const p1 = document.createElement('p');
+  p1.textContent = "Got a question, comment or suggestion?";
+
+  const p2 = document.createElement('p');
+  p2.textContent = "We'd love to hear from you!";
+
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+  const h3 = document.createElement('h3');
+  h3.textContent = "Rin Ramen";
+  card.appendChild(h3);
+
+  const contacts = [
+    'feedback@rinramen.com',
+    '+X 123-456-7890',
+    '+X 225-216-7230',
+    '+X 505-646-7160',
+  ];
+
+  for (let contact of contacts) {
+    const p = document.createElement('p');
+    p.textContent = contact;
+    card.appendChild(p);
+  }
+
+  contactContainer.appendChild(h2);
+  contactContainer.appendChild(p1);
+  contactContainer.appendChild(p2);
+  contactContainer.appendChild(card);
+  siteContainer.appendChild(contactContainer);
+}
+
 export {
   clearSiteContainer,
   header,
   home,
   footer,
   menu,
+  contact,
 }
