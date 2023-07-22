@@ -13,6 +13,12 @@ import imgBeer from './images/drinks-beer.jpeg';
 
 const siteContainer = document.querySelector('.site-container'); 
 
+const clearSiteContainer = () => {
+  while (siteContainer.firstChild) {
+    siteContainer.removeChild(siteContainer.firstChild);
+  }
+}
+
 const header = () => {
   const header = document.createElement('header');
   header.classList.add('header');
@@ -42,6 +48,7 @@ const header = () => {
     const button = document.createElement('button');
     if (ulItem !== 'Order Now') {
       button.classList.add('nav-button');
+      button.id = `button${ulItem}`;
     }
     else {
       button.classList.add('order-button');
@@ -214,6 +221,7 @@ const menu = () => {
 }
 
 export {
+  clearSiteContainer,
   header,
   home,
   footer,
